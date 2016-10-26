@@ -2,7 +2,7 @@
 
 ## Usage
 
-Please add `inspector.swf` to your project.
+Please add [inspector.swf](bin-release/inspector.swf) to your project.
 
 And add this swf to stage by `DisplayObjectContainer#addChild`.
 
@@ -20,7 +20,7 @@ class Sample extends UIComponent {
 }
 ```
 
-### Use in ActionScript3
+### Use in ActionScript
 
 ```as3
 var loader:Loader = new Loader;
