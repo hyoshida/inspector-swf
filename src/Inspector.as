@@ -313,7 +313,7 @@ package {
       }
 
       _border = new Sprite;
-      parent.addChild(_border);
+      stage.addChild(_border);
 
       refreshTargetBorder();
     }
@@ -322,7 +322,7 @@ package {
       if (!target || !_border) {
         return;
       }
-      parent.removeChild(_border);
+      stage.removeChild(_border);
       _border = null;
     }
 
