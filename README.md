@@ -1,26 +1,25 @@
 # Inspector.swf
 
-## Usage
+## Installation
 
 Please add [inspector.swf](bin-release/inspector.swf) to your project.
 
 And add this swf to stage by `DisplayObjectContainer#addChild`.
 
-### Use in Flex
+## Usage
 
 ```as3
-class Sample extends UIComponent {
+class Main extends Sprite {
   [Embed(source="inspector.swf")]
   private static var Inspector:Class;
 
-  public function Sample() {
-    super();
+  public function Main() {
     addChild(new Inspector);
   }
 }
 ```
 
-### Use in ActionScript
+or
 
 ```as3
 var loader:Loader = new Loader;
