@@ -27,6 +27,12 @@ loader.load(new URLRequest("inspector.swf"));
 addChild(loader);
 ```
 
+## Key Bindings
+
+- `Shift+Click`: Inspect a DisplayObject under the cursor.
+- `Tab`: Inspect the parent of the current target.
+- `Esc`: Stop the inspection.
+
 ## Troubleshooting
 
 Please try to add `-keep-all-type-selectors` to the compiler options, if you got an error like this: `Error: Skin for Inspector.VGroup.CheckBox cannot be found.`
