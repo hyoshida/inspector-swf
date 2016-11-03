@@ -507,7 +507,7 @@ package {
 
       event.stopImmediatePropagation();
 
-      var objects:Array = MovieClip(root).getObjectsUnderPoint(new Point(stage.mouseX, stage.mouseY));
+      var objects:Array = stage.getObjectsUnderPoint(new Point(stage.mouseX, stage.mouseY));
       if (objects.length > 0) {
         target = objects[objects.length - 1] as DisplayObject;
       } else {
