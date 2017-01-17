@@ -29,6 +29,7 @@ package {
     public static const LINE_HEIGHT:int = 12;
 
     private static var instance:Inspector;
+    private static var parentForToggle:DisplayObjectContainer;
 
     private var _container:VGroup;
     private var _nameInputField:RichEditableText;
@@ -61,6 +62,12 @@ package {
       }
       instance = new Inspector;
       parent.addChild(instance);
+    }
+
+    private static function onKeyDownForToggle(event:KeyboardEvent):void {
+      if (event.keyCode == Keyboard.F12) {
+        toggle(parentForToggle);
+      }
     }
 
     public static function destroy():void {
@@ -464,6 +471,11 @@ package {
       stage.addEventListener(MouseEvent.CLICK, onClickStage, true);
       stage.addEventListener(MouseEvent.MOUSE_DOWN, onMouseDownStage, true);
       stage.addEventListener(MouseEvent.MOUSE_MOVE, onMouseMoveStage, true);
+
+      if (!parentForToggle) {
+        parentForToggle = parent;
+        stage.addEventListener(KeyboardEvent.KEY_DOWN, onKeyDownForToggle);
+      }
     }
 
     private function onRemovedFromStage(_event:Event):void {
@@ -498,9 +510,6 @@ package {
           break;
         case Keyboard.ESCAPE:
           target = null;
-          break;
-        case Keyboard.F12:
-          toggle();
           break;
       }
     }
