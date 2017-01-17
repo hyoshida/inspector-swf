@@ -6,7 +6,7 @@ Please add [inspector.swf](bin-release/inspector.swf) to your project.
 
 And add this swf to stage by `DisplayObjectContainer#addChild`.
 
-## Usage
+### Sample
 
 ```as3
 class Main extends Sprite {
