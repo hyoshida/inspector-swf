@@ -1,12 +1,12 @@
 package {
   import flash.display.DisplayObject;
   import flash.display.DisplayObjectContainer;
-  import flash.display.MovieClip;
   import flash.display.Sprite;
   import flash.events.Event;
   import flash.events.KeyboardEvent;
   import flash.events.MouseEvent;
   import flash.geom.Point;
+  import flash.ui.Keyboard;
   import flash.ui.Mouse;
   import flash.ui.MouseCursor;
   import flash.utils.describeType;
@@ -147,6 +147,11 @@ package {
       target.width = Number(_widthInputField.text);
       target.height = Number(_heightInputField.text);
       refreshTargetBorder();
+    }
+
+    public function toggle():void {
+      target = null;
+      visible = !visible;
     }
 
     private function initializeProperties():void {
@@ -496,7 +501,10 @@ package {
           break;
         case VK_ESC:
           target = null;
-          break
+          break;
+        case Keyboard.F12:
+          toggle();
+          break;
       }
     }
 

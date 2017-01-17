@@ -32,6 +32,7 @@ addChild(loader);
 - `Shift+Click`: Inspect a DisplayObject under the cursor.
 - `Tab`: Inspect the parent of the current target.
 - `Esc`: Stop the inspection.
+- `F12`: Toggle Inspector.
 
 ## Troubleshooting
 
