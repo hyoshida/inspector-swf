@@ -27,7 +27,11 @@ loader.load(new URLRequest("inspector.swf"));
 addChild(loader);
 ```
 
-## Key Bindings
+## Usage
+
+Focus your flash screen, and press the F12 key.
+
+### Key Bindings
 
 - `Shift+Click`: Inspect a DisplayObject under the cursor.
 - `Tab`: Inspect the parent of the current target.

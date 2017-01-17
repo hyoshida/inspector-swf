@@ -114,21 +114,14 @@ package {
 
     public function Inspector() {
       super();
-
-      initializeProperties();
-      createBackground();
-      createContainer();
-      createNameInputField();
-      createPositionGroup();
-      createSizeGroup();
-      createDetailCheck();
-
       addEventListener(Event.ADDED_TO_STAGE, onAddedToStage);
       addEventListener(Event.REMOVED_FROM_STAGE, onRemovedFromStage);
     }
 
     public function dispose():void {
-      _checkDetail.removeEventListener(MouseEvent.CLICK, onClickDetailCheck);
+      if (_checkDetail) {
+        _checkDetail.removeEventListener(MouseEvent.CLICK, onClickDetailCheck);
+      }
       removeEventListener(Event.ADDED_TO_STAGE, onAddedToStage);
       removeEventListener(Event.REMOVED_FROM_STAGE, onRemovedFromStage);
     }
@@ -465,17 +458,27 @@ package {
     }
 
     private function onAddedToStage(_event:Event):void {
+      if (!parentForToggle) {
+        parentForToggle = parent;
+        stage.addEventListener(KeyboardEvent.KEY_DOWN, onKeyDownForToggle);
+        destroy();
+        return;
+      }
+
+      initializeProperties();
+      createBackground();
+      createContainer();
+      createNameInputField();
+      createPositionGroup();
+      createSizeGroup();
+      createDetailCheck();
+
       stage.addEventListener(Event.ADDED, onAdded);
       stage.addEventListener(KeyboardEvent.KEY_DOWN, onKeyDownStage);
       stage.addEventListener(KeyboardEvent.KEY_UP, onKeyUpStage);
       stage.addEventListener(MouseEvent.CLICK, onClickStage, true);
       stage.addEventListener(MouseEvent.MOUSE_DOWN, onMouseDownStage, true);
       stage.addEventListener(MouseEvent.MOUSE_MOVE, onMouseMoveStage, true);
-
-      if (!parentForToggle) {
-        parentForToggle = parent;
-        stage.addEventListener(KeyboardEvent.KEY_DOWN, onKeyDownForToggle);
-      }
     }
 
     private function onRemovedFromStage(_event:Event):void {
