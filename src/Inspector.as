@@ -492,14 +492,11 @@ package {
     private function onKeyUpStage(event:KeyboardEvent):void {
       shiftKey = false;
 
-      const VK_TAB:int = 9;
-      const VK_ESC:int = 27;
-
       switch (event.keyCode) {
-        case VK_TAB:
+        case Keyboard.TAB:
           target = target ? target.parent : null;
           break;
-        case VK_ESC:
+        case Keyboard.ESCAPE:
           target = null;
           break;
         case Keyboard.F12:
